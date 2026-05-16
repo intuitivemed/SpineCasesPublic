@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>iPhone Test Page</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #f6f7fb;
+        --panel: #ffffff;
+        --text: #1d2430;
+        --muted: #626d7c;
+        --accent: #0f766e;
+        --accent-strong: #0b5f59;
+        --line: #d9dee7;
+        --shadow: 0 18px 45px rgba(31, 42, 55, 0.12);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #111827;
+          --panel: #1f2937;
+          --text: #f7fafc;
+          --muted: #bac3d1;
+          --accent: #2dd4bf;
+          --accent-strong: #5eead4;
+          --line: #374151;
+          --shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100svh;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(45, 212, 191, 0.16), transparent 32rem),
+          var(--bg);
+        color: var(--text);
+      }
+
+      main {
+        width: min(100%, 720px);
+        margin: 0 auto;
+        padding: max(24px, env(safe-area-inset-top)) 18px max(24px, env(safe-area-inset-bottom));
+      }
+
+      .panel {
+        margin-top: 24px;
+        padding: 24px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 9vw, 3.5rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      p {
+        margin: 14px 0 0;
+        color: var(--muted);
+        font-size: 1.05rem;
+        line-height: 1.5;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 44px;
+        margin-bottom: 18px;
+        padding: 0 14px;
+        border: 1px solid color-mix(in srgb, var(--accent), var(--line) 60%);
+        border-radius: 999px;
+        color: var(--accent-strong);
+        font-weight: 700;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 0 7px color-mix(in srgb, var(--accent), transparent 78%);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 22px;
+      }
+
+      .tile {
+        min-height: 92px;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: color-mix(in srgb, var(--panel), var(--bg) 42%);
+      }
+
+      .label {
+        display: block;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .value {
+        display: block;
+        margin-top: 8px;
+        font-size: 1.25rem;
+        font-weight: 800;
+        overflow-wrap: anywhere;
+      }
+
+      button {
+        width: 100%;
+        min-height: 52px;
+        margin-top: 22px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--accent);
+        color: #06211f;
+        font: inherit;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      button:active {
+        transform: translateY(1px);
+      }
+
+      #tap-result {
+        min-height: 1.5em;
+      }
+
+      @media (max-width: 420px) {
+        main {
+          padding-inline: 14px;
+        }
+
+        .panel {
+          padding: 20px;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="panel" aria-labelledby="title">
+        <div class="status"><span class="dot" aria-hidden="true"></span>Page loaded</div>
+        <h1 id="title">iPhone Test Page</h1>
+        <p>
+          This page is built to confirm that a public web link opens correctly
+          from your iPhone and adapts to the screen size.
+        </p>
+
+        <div class="grid" aria-label="Device and page details">
+          <div class="tile">
+            <span class="label">Viewport</span>
+            <span class="value" id="viewport">Checking...</span>
+          </div>
+          <div class="tile">
+            <span class="label">Device pixel ratio</span>
+            <span class="value" id="ratio">Checking...</span>
+          </div>
+          <div class="tile">
+            <span class="label">Time loaded</span>
+            <span class="value" id="loaded">Checking...</span>
+          </div>
+          <div class="tile">
+            <span class="label">Touch test</span>
+            <span class="value" id="tap-result">Not tapped yet</span>
+          </div>
+        </div>
+
+        <button id="tap-button" type="button">Tap to Test</button>
+      </section>
+    </main>
+
+    <script>
+      const viewport = document.querySelector("#viewport");
+      const ratio = document.querySelector("#ratio");
+      const loaded = document.querySelector("#loaded");
+      const tapResult = document.querySelector("#tap-result");
+      const tapButton = document.querySelector("#tap-button");
+
+      function updateViewport() {
+        viewport.textContent = `${window.innerWidth} x ${window.innerHeight}`;
+        ratio.textContent = window.devicePixelRatio.toFixed(2);
+      }
+
+      updateViewport();
+      loaded.textContent = new Date().toLocaleTimeString([], {
+        hour: "numeric",
+        minute: "2-digit",
+        second: "2-digit"
+      });
+
+      tapButton.addEventListener("click", () => {
+        tapResult.textContent = `Tapped at ${new Date().toLocaleTimeString([], {
+          hour: "numeric",
+          minute: "2-digit",
+          second: "2-digit"
+        })}`;
+      });
+
+      window.addEventListener("resize", updateViewport);
+    </script>
+  </body>
+</html>
