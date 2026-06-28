@@ -40,10 +40,9 @@
       display: grid;
       align-items: end;
       padding: 24px;
-      color: #ffffff;
-      text-shadow: 0 3px 14px rgba(0, 0, 0, 0.9);
+      color: #fff;
       background:
-        linear-gradient(180deg, rgba(5, 10, 12, 0.6) 0%, rgba(5, 10, 12, 0.82) 62%, rgba(5, 10, 12, 0.9) 100%),
+        linear-gradient(180deg, rgba(10, 16, 18, 0.25) 0%, rgba(10, 16, 18, 0.7) 74%),
         url("https://commons.wikimedia.org/wiki/Special:FilePath/Mount_Royal_Montreal_Lookout.jpg?width=1800") center / cover;
     }
 
@@ -59,8 +58,7 @@
       font-weight: 850;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #ffe28a;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
+      color: #f6d77a;
     }
 
     h1 {
@@ -69,8 +67,7 @@
       font-size: clamp(3.2rem, 11vw, 8.4rem);
       line-height: 0.9;
       letter-spacing: 0;
-      color: #ffffff;
-      text-shadow: 0 5px 22px rgba(0, 0, 0, 0.96);
+
     }
 
     .hero p {
@@ -78,8 +75,7 @@
       margin: 22px 0 0;
       font-size: clamp(1.05rem, 2.2vw, 1.45rem);
       line-height: 1.55;
-      color: #ffffff;
-      text-shadow: 0 3px 14px rgba(0, 0, 0, 0.95);
+      color: rgba(255, 255, 255, 0.92);
     }
 
     .trip-bar {
@@ -90,15 +86,13 @@
     }
 
     .pill {
-      border: 1px solid rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.35);
       border-radius: 999px;
       padding: 9px 12px;
-      background: rgba(0, 0, 0, 0.48);
-      color: #ffffff;
+      background: rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(12px);
       font-size: 0.95rem;
-      font-weight: 750;
-      text-shadow: 0 2px 9px rgba(0, 0, 0, 0.95);
     }
 
     main { overflow: hidden; }
@@ -171,25 +165,48 @@
     }
 
     .day-card {
+      position: relative;
       display: grid;
-      grid-template-rows: 190px 1fr;
+      align-items: end;
       min-height: 440px;
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: var(--panel);
+      background: #172226;
       box-shadow: 0 12px 30px rgba(24, 35, 38, 0.08);
+      isolation: isolate;
+    }
+
+    .day-card::after {
+      content: "";
+      position: absolute;
+      inset: 35% 0 0;
+      z-index: 1;
+      background: linear-gradient(180deg, rgba(10, 16, 18, 0) 0%, rgba(10, 16, 18, 0.58) 34%, rgba(10, 16, 18, 0.86) 100%);
+      pointer-events: none;
+    }
+
+    .day-card > img {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
     }
 
     .day-card.feature {
       grid-column: span 2;
     }
 
-    .day-body { padding: 20px; }
+    .day-body {
+      position: relative;
+      z-index: 2;
+      padding: 20px;
+      color: #ffffff;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
+    }
 
     .date {
       margin: 0 0 8px;
-      color: var(--brick);
+      color: #ffe28a;
       font-size: 0.82rem;
       font-weight: 850;
       letter-spacing: 0.08em;
@@ -205,7 +222,7 @@
 
     .day-card p {
       margin: 12px 0 0;
-      color: var(--muted);
+      color: #ffffff;
       line-height: 1.58;
     }
 
@@ -219,8 +236,8 @@
     .tagline span {
       border-radius: 999px;
       padding: 7px 9px;
-      background: #f4efe4;
-      color: #654835;
+      background: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
       font-size: 0.82rem;
       font-weight: 700;
     }
@@ -304,7 +321,7 @@
       .hero { min-height: 82vh; padding: 18px; }
       section { padding-inline: 18px; }
       .fact-list, .day-grid, .reservation-grid { grid-template-columns: 1fr; }
-      .day-card { min-height: 0; grid-template-rows: 210px 1fr; }
+      .day-card { min-height: 430px; }
       .hotel-photo, .excursion-photo { min-height: 290px; }
     }
   </style>
