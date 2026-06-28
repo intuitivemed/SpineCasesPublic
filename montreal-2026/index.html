@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Montreal Family Vacation Itinerary | Aug 19-25, 2026</title>
+  <meta name="description" content="A shareable Montreal family vacation itinerary based at Sofitel Montreal Golden Mile, with half-day activities and a nature excursion.">
+  <style>
+    :root {
+      --ink: #1a2528;
+      --muted: #5f686a;
+      --paper: #fbfaf6;
+      --panel: #ffffff;
+      --line: rgba(26, 37, 40, 0.15);
+      --forest: #245646;
+      --brick: #a85237;
+      --gold: #d7a94f;
+      --sky: #dfeef0;
+      --shadow: 0 18px 45px rgba(24, 35, 38, 0.14);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+    }
+
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+    a { color: inherit; }
+
+    .hero {
+      min-height: 86vh;
+      display: grid;
+      align-items: end;
+      padding: 24px;
+      color: #fff;
+      background:
+        linear-gradient(180deg, rgba(10, 16, 18, 0.25) 0%, rgba(10, 16, 18, 0.7) 74%),
+        url("https://commons.wikimedia.org/wiki/Special:FilePath/Mount_Royal_Montreal_Lookout.jpg?width=1800") center / cover;
+    }
+
+    .hero-inner {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      padding: 0 0 clamp(34px, 8vh, 78px);
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #f6d77a;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 11ch;
+      font-size: clamp(3.2rem, 11vw, 8.4rem);
+      line-height: 0.9;
+      letter-spacing: 0;
+    }
+
+    .hero p {
+      max-width: 780px;
+      margin: 22px 0 0;
+      font-size: clamp(1.05rem, 2.2vw, 1.45rem);
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .trip-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .pill {
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      padding: 9px 12px;
+      background: rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      font-size: 0.95rem;
+    }
+
+    main { overflow: hidden; }
+
+    section {
+      padding: clamp(42px, 7vw, 82px) 24px;
+    }
+
+    .wrap {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 5vw, 4.2rem);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .section-copy {
+      margin: 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hotel-photo {
+      min-height: 360px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .fact-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .fact {
+      border-top: 3px solid var(--forest);
+      background: var(--panel);
+      padding: 18px;
+      border-radius: 8px;
+      box-shadow: 0 8px 22px rgba(24, 35, 38, 0.08);
+    }
+
+    .fact b { display: block; margin-bottom: 6px; }
+    .fact span { color: var(--muted); line-height: 1.5; }
+
+    .timeline {
+      background: #eef4f0;
+    }
+
+    .day-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 32px;
+    }
+
+    .day-card {
+      display: grid;
+      grid-template-rows: 190px 1fr;
+      min-height: 440px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 12px 30px rgba(24, 35, 38, 0.08);
+    }
+
+    .day-card.feature {
+      grid-column: span 2;
+    }
+
+    .day-body { padding: 20px; }
+
+    .date {
+      margin: 0 0 8px;
+      color: var(--brick);
+      font-size: 0.82rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .day-card h3 {
+      margin: 0;
+      font-size: 1.35rem;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    .day-card p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      line-height: 1.58;
+    }
+
+    .tagline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tagline span {
+      border-radius: 999px;
+      padding: 7px 9px;
+      background: #f4efe4;
+      color: #654835;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .excursion {
+      background: var(--forest);
+      color: #f8fbf7;
+    }
+
+    .excursion .section-copy { color: rgba(248, 251, 247, 0.78); }
+
+    .excursion-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 520px);
+      gap: 30px;
+      align-items: center;
+      margin-top: 32px;
+    }
+
+    .route-card {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .route-card ul {
+      margin: 18px 0 0;
+      padding-left: 20px;
+      color: rgba(248, 251, 247, 0.86);
+      line-height: 1.75;
+    }
+
+    .excursion-photo {
+      min-height: 380px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+    }
+
+    .reservations {
+      background: #f6efe3;
+    }
+
+    .reservation-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .reservation {
+      min-height: 145px;
+      border-radius: 8px;
+      border: 1px solid rgba(101, 72, 53, 0.2);
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .reservation b { display: block; margin-bottom: 8px; }
+    .reservation span { color: #66584c; line-height: 1.55; }
+
+    footer {
+      padding: 34px 24px 46px;
+      background: #172226;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    footer .wrap { display: grid; gap: 12px; }
+    footer a { color: #f6d77a; }
+
+    @media (max-width: 920px) {
+      .intro-grid, .excursion-grid { grid-template-columns: 1fr; }
+      .day-grid, .reservation-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .day-card.feature { grid-column: span 1; }
+    }
+
+    @media (max-width: 620px) {
+      .hero { min-height: 82vh; padding: 18px; }
+      section { padding-inline: 18px; }
+      .fact-list, .day-grid, .reservation-grid { grid-template-columns: 1fr; }
+      .day-card { min-height: 0; grid-template-rows: 210px 1fr; }
+      .hotel-photo, .excursion-photo { min-height: 290px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Yoon Family Vacation</p>
+      <h1>Montreal</h1>
+      <p>August 19-25, 2026: a relaxed city-and-nature itinerary based at Sofitel Montreal Golden Mile, with one strong half-day plan for each full day and plenty of open space around meals.</p>
+      <div class="trip-bar" aria-label="Trip details">
+        <span class="pill">ATL to YUL: Wed Aug 19, evening arrival</span>
+        <span class="pill">Hotel: Sofitel Montreal Golden Mile</span>
+        <span class="pill">Return: Tue Aug 25, midday flight</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="wrap intro-grid">
+        <div>
+          <h2 class="section-title">Home Base</h2>
+          <p class="section-copy">Sofitel Montreal Golden Mile is a convenient downtown anchor for this trip: close to Mount Royal, the Montreal Museum of Fine Arts, McGill, Sherbrooke Street, Sainte-Catherine Street, and easy rides to Old Montreal, Jean-Talon Market, and the Botanical Garden.</p>
+          <div class="fact-list">
+            <div class="fact"><b>Best rhythm</b><span>One planned activity block per day, then open afternoons and evenings.</span></div>
+            <div class="fact"><b>Neighborhood mix</b><span>Old Montreal, Mile End, Plateau, Golden Square Mile, and the Old Port.</span></div>
+            <div class="fact"><b>Nature day</b><span>Mont Saint-Hilaire for a beautiful hike within easy driving range.</span></div>
+            <div class="fact"><b>Travel style</b><span>Adult-family pace: food, views, walking, culture, and one restorative spa option.</span></div>
+          </div>
+        </div>
+        <figure class="hotel-photo" aria-label="Sofitel Montreal Golden Mile">
+          <img src="https://www.ahstatic.com/photos/3646_ho_00_p_2048x1536.jpg" alt="Sofitel Montreal Golden Mile exterior">
+        </figure>
+      </div>
+    </section>
+
+    <section class="timeline">
+      <div class="wrap">
+        <h2 class="section-title">Day By Day</h2>
+        <p class="section-copy">The full days each have a main outing that should fit comfortably into about half a day. The one exception is Friday, which is reserved for the nature excursion.</p>
+
+        <div class="day-grid">
+          <article class="day-card">
+            <img src="https://www.ahstatic.com/photos/3646_ho_01_p_2048x1536.jpg" alt="Sofitel Montreal Golden Mile lobby">
+            <div class="day-body">
+              <p class="date">Wed Aug 19</p>
+              <h3>Arrival Night</h3>
+              <p>Land at YUL at 11:52pm on DL2416. Keep the first night simple: pre-book a car or large taxi, check in, and sleep.</p>
+              <div class="tagline"><span>Travel day</span><span>No plans</span></div>
+            </div>
+          </article>
+
+          <article class="day-card feature">
+            <img src="https://assets.fabriquenotredame.ca/production/Basilique/AURA-Moment-Factory/_1440x1056_crop_center-center_70_none/21433/moment_factory_aura-1094-1920x1281.webp" alt="Notre-Dame Basilica AURA light experience">
+            <div class="day-body">
+              <p class="date">Thu Aug 20</p>
+              <h3>Old Montreal + Waterfront</h3>
+              <p>Late morning in Old Montreal: Notre-Dame Basilica, Place Jacques-Cartier, cobblestone streets, and the Old Port waterfront. Optional evening: AURA at Notre-Dame for a polished, low-effort night activity.</p>
+              <div class="tagline"><span>Old Montreal</span><span>Notre-Dame</span><span>Waterfront</span></div>
+            </div>
+          </article>
+
+          <article class="day-card feature">
+            <img src="https://www.centrenature.qc.ca/biospheremsh/lib/img/explorer/lac-mont-saint-hilaire/lac-mont-saint-hilaire_2.jpg" alt="Aerial view of Lac Hertel at Mont Saint-Hilaire">
+            <div class="day-body">
+              <p class="date">Fri Aug 21</p>
+              <h3>Nature Excursion: Mont Saint-Hilaire</h3>
+              <p>Leave after breakfast for Gault Nature Reserve. Hike around Lac Hertel and choose a summit route depending on energy. Return to Montreal mid to late afternoon.</p>
+              <div class="tagline"><span>Day trip</span><span>Forest</span><span>Summit views</span></div>
+            </div>
+          </article>
+
+          <article class="day-card">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Jean-Talon_Market.jpg?width=1200" alt="Jean-Talon Market in Montreal">
+            <div class="day-body">
+              <p class="date">Sat Aug 22</p>
+              <h3>Jean-Talon Market + Mile End</h3>
+              <p>Start with coffee, fruit, pastries, cheese, and market browsing. Continue into Little Italy and Mile End for bagels, cafes, shops, and a relaxed food-forward day.</p>
+              <div class="tagline"><span>Market</span><span>Little Italy</span><span>Mile End</span></div>
+            </div>
+          </article>
+
+          <article class="day-card">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Mount_Royal_Montreal_Lookout.jpg?width=1200" alt="View of Montreal from Mount Royal lookout">
+            <div class="day-body">
+              <p class="date">Sun Aug 23</p>
+              <h3>Mount Royal + Plateau</h3>
+              <p>Walk or ride partway up Mount Royal for Kondiaronk Belvedere, the chalet, and Beaver Lake. Follow with Plateau wandering, murals, boutiques, and cafes.</p>
+              <div class="tagline"><span>City view</span><span>Walkable</span><span>Plateau</span></div>
+            </div>
+          </article>
+
+          <article class="day-card feature">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Chinese_Garden_Montreal.jpg?width=1200" alt="Chinese Garden at the Montreal Botanical Garden">
+            <div class="day-body">
+              <p class="date">Mon Aug 24</p>
+              <h3>Botanical Garden + Bota Bota</h3>
+              <p>Spend the morning at the Montreal Botanical Garden. In the late afternoon, consider Bota Bota in the Old Port for a water circuit and a calm final evening before departure day.</p>
+              <div class="tagline"><span>Garden</span><span>Old Port spa</span><span>Final dinner</span></div>
+            </div>
+          </article>
+
+          <article class="day-card">
+            <img src="https://botabota.ca/wp-content/uploads/2024/06/BotaBota_250521-51-scaled.jpg" alt="Bota Bota spa in Montreal">
+            <div class="day-body">
+              <p class="date">Tue Aug 25</p>
+              <h3>Departure</h3>
+              <p>DL2629 departs YUL at 12:44pm. Plan to leave the hotel around 9:00-9:15am unless Delta advises a different airport timing.</p>
+              <div class="tagline"><span>Travel day</span><span>YUL to ATL</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="excursion">
+      <div class="wrap">
+        <h2 class="section-title">Best Nature Day</h2>
+        <p class="section-copy">Gault Nature Reserve at Mont Saint-Hilaire is the best fit for a beautiful outing within the requested driving radius. It gives the family real forest, a lake, summit options, and a strong change of scenery without sacrificing the whole day to logistics.</p>
+        <div class="excursion-grid">
+          <div class="route-card">
+            <h3>Suggested Friday Plan</h3>
+            <ul>
+              <li>8:30am: leave Sofitel Montreal Golden Mile.</li>
+              <li>9:30am: arrive, check in, start hiking.</li>
+              <li>Choose a moderate route around Lac Hertel with one summit if weather is good.</li>
+              <li>1:30pm: late lunch near Mont-Saint-Hilaire or back in Montreal.</li>
+              <li>Mid/late afternoon: return, shower, easy dinner.</li>
+            </ul>
+          </div>
+          <figure class="excursion-photo" aria-label="Lac Hertel at Mont Saint-Hilaire">
+            <img src="https://www.centrenature.qc.ca/biospheremsh/lib/img/explorer/lac-mont-saint-hilaire/lac-mont-saint-hilaire_1.jpg" alt="Lac Hertel surrounded by forest at Mont Saint-Hilaire">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="reservations">
+      <div class="wrap">
+        <h2 class="section-title">Book Ahead</h2>
+        <p class="section-copy">A few reservations will make the trip feel easy without over-scheduling it.</p>
+        <div class="reservation-grid">
+          <div class="reservation"><b>Gault Nature Reserve</b><span>Confirm visitor access and parking before the hiking day.</span></div>
+          <div class="reservation"><b>AURA at Notre-Dame</b><span>Only if the group wants a structured evening in Old Montreal.</span></div>
+          <div class="reservation"><b>Bota Bota</b><span>Reserve the water circuit if Monday afternoon spa time sounds appealing.</span></div>
+          <div class="reservation"><b>Final Dinner</b><span>Make Monday night the strongest dinner reservation of the trip.</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div>Prepared for the Yoon family as a proposed itinerary. Confirm opening hours, tickets, and weather closer to August 2026.</div>
+      <div>Sources and image references: <a href="https://sofitel.accor.com/en/hotels/3646.html">Sofitel Montreal Golden Mile</a>, <a href="https://www.basiliquenotredame.ca/en/events/the-aura-experience">Notre-Dame AURA</a>, <a href="https://gault.mcgill.ca/en/">Gault Nature Reserve</a>, <a href="https://www.marchespublics-mtl.com/en/markets/jean-talon-market">Jean-Talon Market</a>, <a href="https://www.mtl.org/en/what-to-do/activities/mount-royal-park">Mount Royal Park</a>, <a href="https://espacepourlavie.ca/en/botanical-garden">Montreal Botanical Garden</a>, <a href="https://botabota.ca/">Bota Bota</a>, and Wikimedia Commons.</div>
+    </div>
+  </footer>
+</body>
+</html>
